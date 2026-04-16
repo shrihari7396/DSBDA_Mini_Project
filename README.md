@@ -1,5 +1,5 @@
 
-# 📧 DSBSA Mini Project: Spam SMS Detection using Machine Learning
+# 📧 DSBDA Mini Project: Spam SMS Detection using Machine Learning
 
 ## 📌 Project Title
 Spam SMS Detection using Machine Learning and Natural Language Processing (NLP)
