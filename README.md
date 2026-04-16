@@ -1,10 +1,4 @@
-# 📘 DSBSA Mini Project – Spam SMS Detection
 
-You can copy-paste this into a file named `README.md`.
-
----
-
-````markdown
 # 📧 DSBSA Mini Project: Spam SMS Detection using Machine Learning
 
 ## 📌 Project Title
@@ -220,5 +214,3 @@ Student Project – Machine Learning & Data Science
 ## 📜 License
 
 This project is for educational purposes only.
-
-```
