@@ -1,216 +1,83 @@
+# DSBDA Mini Project: COVID-19 Vaccination Analysis
 
-# 📧 DSBDA Mini Project: Spam SMS Detection using Machine Learning
+## Project Overview
+This project analyzes COVID-19 vaccination data in India using `Untitled1.ipynb`.
+It includes data cleaning, summary analysis, and visualization of first dose, second dose, and gender-wise vaccination.
 
-## 📌 Project Title
-Spam SMS Detection using Machine Learning and Natural Language Processing (NLP)
+## Notebook File
+- `Untitled1.ipynb`
 
----
+## Dataset Columns Used
+The notebook logic is based on these columns:
+- `Updated On`
+- `State`
+- `Total Doses Administered` (present in dataset schema)
+- `First Dose Administered`
+- `Second Dose Administered`
+- `Male (Doses Administered)`
+- `Female (Doses Administered)`
 
-## 🎯 Objective
-The objective of this project is to build a machine learning model that can automatically classify SMS messages into:
+Sample format:
+```csv
+Updated On,State,Total Doses Administered,First Dose Administered,Second Dose Administered
+16/01/2021,India,48276,48276,0
+17/01/2021,India,58604,58604,0
+```
 
-- 🚫 Spam (Unwanted / Fraud messages)
-- ✅ Ham (Normal / Safe messages)
+## Verified Notebook Workflow (What `ipynb` Does)
+1. Reads CSV: `covid_vaccine_statewise.csv`.
+2. Displays:
+   - statistical summary (`describe`)
+   - dataset structure (`info`)
+   - column list
+   - first 5 rows (`head`)
+3. Cleans data:
+   - removes `India` row (`State != 'India'`)
+   - strips extra spaces from column names
+   - checks null values
+   - fills null values with `0`
+   - removes duplicates
+4. Computes and visualizes:
+   - state-wise first dose (bar chart)
+   - state-wise second dose (bar chart)
+   - gender-wise distribution (donut/pie)
+5. Prints total male and female doses.
 
-This helps in filtering unwanted messages and improving communication safety.
+## Output Images (Extracted from Notebook)
+These are direct images from executed notebook outputs:
 
----
+### First Dose Administered by State
+![First Dose Chart](images/cell_16_output_1.png)
 
-## 🧠 Problem Statement
-With the increasing number of SMS-based scams and spam messages, it becomes difficult for users to manually identify harmful messages. This project uses Machine Learning to automatically detect spam messages.
+### Second Dose Administered by State
+![Second Dose Chart](images/cell_17_output_1.png)
 
----
+### Gender-wise Vaccination Distribution
+![Gender-wise Chart](images/cell_21_output_1.png)
 
-## 📊 Dataset Used
-The dataset is taken from Kaggle:
-
-👉 SMS Spam Collection Dataset  
-Source: https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
-
-### Dataset Details:
-- Total messages: ~5500
-- Columns:
-  - `v1` → Label (spam/ham)
-  - `v2` → Message text
-
----
-
-## 🛠️ Technologies Used
-
-- Python 🐍
+## Tech Stack
+- Python
 - Pandas
-- NumPy
-- Scikit-learn
 - Matplotlib
-- Seaborn
-- Kaggle API
+- Jupyter Notebook
 
----
-
-## 🤖 Machine Learning Model Used
-
-- Algorithm: **Multinomial Naive Bayes**
-- Type: Supervised Learning
-- Domain: Natural Language Processing (NLP)
-
----
-
-## ⚙️ Project Workflow
-
-### 1. Data Collection
-- Dataset downloaded from Kaggle using Kaggle API
-
-### 2. Data Preprocessing
-- Converted text to lowercase
-- Removed punctuation and numbers
-- Cleaned raw SMS messages
-
-### 3. Exploratory Data Analysis (EDA)
-- Spam vs Ham distribution visualization
-- Message length analysis
-- Confusion matrix visualization
-
-### 4. Feature Extraction
-- Converted text into numerical form using **CountVectorizer**
-
-### 5. Model Training
-- Trained using Multinomial Naive Bayes classifier
-
-### 6. Model Evaluation
-- Accuracy calculation
-- Classification report
-- Confusion matrix
-
-### 7. Real-time Prediction
-- Input message from user
-- Predict whether message is spam or not
-
----
-
-## 📈 Visualizations
-
-The project includes:
-
-- 📊 Spam vs Ham distribution graph
-- 📉 Message length distribution histogram
-- 🔥 Confusion matrix heatmap
-
----
-
-## 📌 Project Features
-
-✔ Automatic dataset download from Kaggle  
-✔ Text preprocessing using NLP  
-✔ Machine Learning classification model  
-✔ Real-time message prediction  
-✔ Data visualization for insights  
-✔ Interactive input system  
-
----
-
-## 🚀 How to Run the Project
-
-### Step 1: Install dependencies
+## Run Instructions
+1. Install dependencies:
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn kaggle
-````
-
----
-
-### Step 2: Setup Kaggle API
-
-1. Go to Kaggle → Account → Create API Token
-2. Download `kaggle.json`
-3. Place it in:
-
-```
-~/.kaggle/kaggle.json
+pip install pandas matplotlib jupyter kagglehub
 ```
 
----
+2. Keep dataset file in project folder:
+- `covid_vaccine_statewise.csv`
 
-### Step 3: Run Python file or Jupyter Notebook
-
+3. Run notebook:
 ```bash
-python spam_detector.py
+jupyter notebook Untitled1.ipynb
 ```
 
-OR run in JupyterLab.
+## Important Notes
+- Current logic excludes national aggregate (`State == 'India'`) to focus on state-level comparison.
+- `Updated On` is sorted as text in current notebook; converting it to datetime would improve date accuracy.
 
----
-
-## 🧪 Example Predictions
-
-### Input:
-
-```
-Congratulations! You won a free iPhone. Click now!
-```
-
-### Output:
-
-```
-Spam
-```
-
----
-
-### Input:
-
-```
-Hey, are we meeting today at 5 PM?
-```
-
-### Output:
-
-```
-Ham
-```
-
----
-
-## 📊 Results
-
-* Model Accuracy: ~95% (varies slightly)
-* Good performance on text classification
-* Fast real-time predictions
-
----
-
-## 🧠 Learning Outcomes
-
-* Understanding NLP preprocessing
-* Working with real-world datasets
-* Building classification models
-* Evaluating ML models using metrics
-* Data visualization techniques
-
----
-
-## ⚠️ Limitations
-
-* Model may misclassify complex spam messages
-* Requires clean dataset for best performance
-* Not deployed in production environment
-
----
-
-## 🔮 Future Improvements
-
-* Use TF-IDF instead of CountVectorizer
-* Use Deep Learning (LSTM / BERT)
-* Deploy using Flask or Streamlit
-* Add real-time SMS API integration
-
----
-
-## 👨‍💻 Author
-
-DSBSA Mini Project
-Student Project – Machine Learning & Data Science
-
----
-
-## 📜 License
-
-This project is for educational purposes only.
+## License
+Educational use only.
